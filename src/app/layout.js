@@ -15,10 +15,19 @@ const displayFont = Space_Grotesk({
   subsets: ["latin"],
 });
 
+
+
+// app/layout.js ya pages/_app.js mein
+
 export const metadata = {
-  title: "Anurag Birendra Singh - Full Stack Developer",
-  description: "Portfolio of Anurag Birendra Singh, a Full Stack Developer specializing in MERN stack, Next.js, and AI-powered solutions with production experience at EduKyu.",
-};
+  title: "Anurag Birendra Singh | Full Stack Developer",
+  description: "Portfolio of Anurag Birendra Singh,  Full Stack Developer from India",
+  keywords: [
+    "Anurag Birendra Singh",
+    "Anurag Singh Developer",
+    "anuragbirendra.dev"
+  ],
+}
 
 export default function RootLayout({ children }) {
   return (
