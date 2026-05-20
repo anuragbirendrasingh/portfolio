@@ -27,17 +27,29 @@ export default function Contact() {
     setSubmitStatus("");
 
     try {
-      await addDoc(collection(db, "contacts"), {
+      // Collect tracking information
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmSource = urlParams.get('utm_source') || '';
+      const utmMedium = urlParams.get('utm_medium') || '';
+      const referrer = document.referrer || '';
+      const currentUrl = window.location.href;
+
+      await addDoc(collection(db, "contact_messages"), {
         name: formData.name,
         email: formData.email,
         subject: formData.subject,
         message: formData.message,
+        source: utmSource || referrer || 'Direct',
+        medium: utmMedium,
+        pageUrl: currentUrl,
         createdAt: serverTimestamp(),
       });
+      
       setSubmitStatus("Thank you for your message! I'll get back to you soon.");
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
-      console.error("Error saving message: ", error);
+      console.error("Error saving message to Firebase: ", error);
+      console.error("Error details:", error.message, error.code);
       setSubmitStatus("Something went wrong. Please try again later.");
     } finally {
       setIsSubmitting(false);
@@ -231,9 +243,9 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  Name
+                  Full Name
                 </label>
                 <input
                   type="text"
@@ -242,15 +254,15 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  placeholder="Your Name (e.g. Anurag Singh)"
-                  className="w-full px-4 py-3 bg-gray-50/50 dark:bg-gray-950/50 border border-gray-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-600 placeholder:text-sm transition-all duration-200"
+                  placeholder="John Doe"
+                  className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 shadow-sm transition duration-200"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
                   Email Address
                 </label>
@@ -261,15 +273,15 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="Your Email (e.g. singhanuragbirendra@gmail.com)"
-                  className="w-full px-4 py-3 bg-gray-50/50 dark:bg-gray-950/50 border border-gray-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-600 placeholder:text-sm transition-all duration-200"
+                  placeholder="john@example.com"
+                  className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 shadow-sm transition duration-200"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="subject"
-                  className="block text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
                   Subject
                 </label>
@@ -280,15 +292,15 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  placeholder="What is this regarding? (e.g. Project Inquiry)"
-                  className="w-full px-4 py-3 bg-gray-50/50 dark:bg-gray-950/50 border border-gray-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-600 placeholder:text-sm transition-all duration-200"
+                  placeholder="How can I help you?"
+                  className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 shadow-sm transition duration-200"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
                   Message
                 </label>
@@ -299,15 +311,15 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows="4"
-                  placeholder="Write your message here in detail..."
-                  className="w-full px-4 py-3 bg-gray-50/50 dark:bg-gray-950/50 border border-gray-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-600 placeholder:text-sm transition-all duration-200"
+                  placeholder="Your message..."
+                  className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 shadow-sm transition duration-200 resize-none"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
