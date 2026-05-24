@@ -47,14 +47,13 @@ export default function Hero() {
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 pt-20 md:pt-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center w-full">
         <div className="space-y-6 md:space-y-8">
-          <div className="flex justify-center">
-            <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl transform transition-transform duration-500 hover:scale-105">
-              <img
-                src="/profile.jpg"
-                alt="Anurag Birendra Singh"
-                className="w-full h-full object-cover"
-              />
-            </div>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/jobs" className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 shadow-lg transition-transform hover:-translate-y-1">
+              Latest Jobs
+            </Link>
+            <Link href="/blogs" className="px-8 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-700 shadow-lg transition-transform hover:-translate-y-1">
+              Developer Blogs
+            </Link>
           </div>
           <div className="space-y-3 md:space-y-4">
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 dark:text-white">

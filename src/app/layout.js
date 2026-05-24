@@ -20,13 +20,23 @@ const displayFont = Space_Grotesk({
 // app/layout.js ya pages/_app.js mein
 
 export const metadata = {
+  metadataBase: new URL('https://anuragbirendra.dev'),
   title: "Anurag Birendra Singh | Full Stack Developer",
-  description: "Portfolio of Anurag Birendra Singh,  Full Stack Developer from India",
-  keywords: [
-    "Anurag Birendra Singh",
-    "Anurag Singh Developer",
-    "anuragbirendra.dev"
-  ],
+  description: "Portfolio of Anurag Birendra Singh, Full Stack Developer from India. Expert in MERN stack, Next.js, and AI-powered solutions.",
+  keywords: ["Anurag Birendra Singh", "Anurag Singh Developer", "anuragbirendra.dev", "Full Stack Developer", "Next.js", "React"],
+  openGraph: {
+    title: "Anurag Birendra Singh | Full Stack Developer",
+    description: "Portfolio of Anurag Birendra Singh, Full Stack Developer from India.",
+    url: "https://anuragbirendra.dev",
+    siteName: "Anurag Birendra Singh Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Anurag Birendra Singh | Full Stack Developer",
+    description: "Portfolio of Anurag Birendra Singh, Full Stack Developer from India.",
+  },
 }
 
 export default function RootLayout({ children }) {

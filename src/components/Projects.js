@@ -10,24 +10,6 @@ export default function Projects() {
       featured: true
     },
     {
-      title: "AI-Powered PDF Data Extraction Pipeline",
-      description: "Developed an intelligent PDF data extraction system using Google Gemini API that significantly reduces manual data entry for non-technical staff at EduKyu. The pipeline processes PDF documents and extracts structured data automatically.",
-      image: "/api/placeholder/600/400",
-      technologies: ["Next.js", "Google Gemini API", "PDF Parsing", "Node.js", "MongoDB"],
-      liveUrl: "https://github.com/anuragbirendrasingh",
-      githubUrl: "https://github.com/anuragbirendrasingh",
-      featured: true
-    },
-    {
-      title: "Dynamic Next.js Landing Pages",
-      description: "Built and deployed multiple live Next.js landing pages with dynamic slug-based routing system. Implemented responsive design and optimized performance for production environment at EduKyu.",
-      image: "/api/placeholder/600/400",
-      technologies: ["Next.js", "React", "Tailwind CSS", "Dynamic Routing", "SSG/SSR"],
-      liveUrl: "https://edukyu.com",
-      githubUrl: "https://github.com/anuragbirendrasingh",
-      featured: true
-    },
-    {
       title: "Frontend Intern Auth Dashboard",
       description: "A scalable full-stack web application featuring authentication, protected routes, and dashboard CRUD operations. Includes task CRUD, status filters, JWT authorization, and a responsive interface.",
       image: "/api/placeholder/600/400",

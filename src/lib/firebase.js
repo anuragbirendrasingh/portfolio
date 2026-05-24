@@ -36,4 +36,3 @@ export const auth = getAuth(app);
 //   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40portfolio-d0223.iam.gserviceaccount.com",
 //   "universe_domain": "googleapis.com"
 // }
-
