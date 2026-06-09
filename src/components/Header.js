@@ -58,18 +58,9 @@ export default function Header() {
             <a
               href="#home"
               onClick={(e) => handleScrollToSection(e, 'home')}
-              className="flex items-center dark:bg-white dark:rounded-lg dark:px-2 dark:py-1"
+              className="text-xl font-bold text-gray-900 dark:text-white"
             >
-              <div className="relative h-14 w-44 md:h-16 md:w-52 overflow-hidden flex-shrink-0">
-                <Image
-                  src="/ChatGPT Image May 19, 2026, 01_27_32 PM.png"
-                  alt="Anurag Birendra Singh"
-                  fill
-                  className="object-contain scale-[3.0] origin-center"
-                  priority
-                  sizes="560px"
-                />
-              </div>
+              Anurag Singh
             </a>
           </div>
 

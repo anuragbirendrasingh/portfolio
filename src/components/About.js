@@ -80,6 +80,17 @@ export default function About() {
               <p className="text-gray-600 dark:text-gray-400 mt-2">
                 Mastered core DSA topics and actively solving problems on LeetCode
               </p>
+              <a 
+                href="https://drive.google.com/file/d/1cxFUm65pOQi8bDkOhsw-DSl6oi8OG3JO/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center mt-3 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+              >
+                View Certificate
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>

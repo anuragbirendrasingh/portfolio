@@ -82,7 +82,7 @@ export default function ApplyModal({ jobTitle }) {
                       value={formData.name}
                       onChange={e => setFormData({...formData, name: e.target.value})}
                       className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-gray-900 outline-none transition-all"
-                      placeholder="John Doe"
+                      placeholder="Anurag Singh"
                     />
                   </div>
                   <div>
@@ -92,7 +92,7 @@ export default function ApplyModal({ jobTitle }) {
                       value={formData.email}
                       onChange={e => setFormData({...formData, email: e.target.value})}
                       className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-gray-900 outline-none transition-all"
-                      placeholder="john@example.com"
+                      placeholder="anurag@mail.com"
                     />
                   </div>
                   <div>

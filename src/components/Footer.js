@@ -91,6 +91,16 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+              <li>
+                <Link href="/jobs" className="text-gray-400 hover:text-white transition-colors">
+                  Developer Jobs
+                </Link>
+              </li>
+              <li>
+                <Link href="/blogs" className="text-gray-400 hover:text-white transition-colors">
+                  Developer Blogs
+                </Link>
+              </li>
             </ul>
           </div>
           

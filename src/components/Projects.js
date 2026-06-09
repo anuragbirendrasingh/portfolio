@@ -1,12 +1,30 @@
 export default function Projects() {
   const projects = [
     {
+      title: "DocFlow - Collaborative Document Editor",
+      description: "A modern, fast, and collaborative document editor functioning as a mini Google Docs clone. It supports rich text editing, auto-save, collaboration, and file parsing for .txt, .md, and .docx formats.",
+      image: "/api/placeholder/600/400",
+      technologies: ["Next.js", "Tailwind CSS", "Tiptap", "Firebase", "Mammoth"],
+      liveUrl: "https://docflow-pi-three.vercel.app/",
+      githubUrl: "https://github.com/anuragbirendrasingh/docflow",
+      featured: true
+    },
+    {
       title: "ARGMinds - AI-Powered EdTech Platform",
       description: "A full-stack EdTech platform deployed on Vercel for college discovery, exam prep, and AI-driven career counseling. Features a multi-provider AI chatbot (Gemini + Claude) with context-aware sessions, 12+ student tools (JEE/NEET predictors, AI Career Finder), Firebase authentication, and a complete SEO pipeline.",
       image: "/api/placeholder/600/400",
       technologies: ["Next.js", "React", "Firebase", "Gemini API", "Claude API", "Tailwind CSS", "Vercel Analytics"],
       liveUrl: "https://argminds.vercel.app/",
       githubUrl: "https://github.com/anuragbirendrasingh/chatbot",
+      featured: true
+    },
+    {
+      title: "BulkIndexer",
+      description: "A streamlined web application designed for efficient bulk data processing and indexing operations. It provides a robust interface for handling large datasets with ease.",
+      image: "/api/placeholder/600/400",
+      technologies: ["Next.js", "React", "Tailwind CSS"],
+      liveUrl: "https://bulkindexer-inky.vercel.app/",
+      githubUrl: "https://github.com/anuragbirendrasingh/bulkindexer",
       featured: true
     },
     {
@@ -23,15 +41,24 @@ export default function Projects() {
   const ProjectCard = ({ project }) => (
     <div className="group bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 dark:border-gray-800">
       <div className="relative h-48 bg-gradient-to-br from-blue-500 to-purple-600 overflow-hidden">
-        <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300"></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-white text-center transform transition-transform duration-500 group-hover:scale-110">
-            <svg className="w-16 h-16 mx-auto mb-2 animate-float" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-            </svg>
-            <p className="text-sm font-medium">Project Preview</p>
+        {project.image && project.image !== "/api/placeholder/600/400" ? (
+          <img 
+            src={project.image} 
+            alt={`${project.title} preview`}
+            className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-white text-center transform transition-transform duration-500 group-hover:scale-110">
+              <svg className="w-16 h-16 mx-auto mb-2 animate-float" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+              </svg>
+              <p className="text-sm font-medium">Project Preview</p>
+              <p className="text-xs opacity-70 mt-1">(Upload screenshot)</p>
+            </div>
           </div>
-        </div>
+        )}
+        <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300"></div>
         {project.featured && (
           <div className="absolute top-4 right-4">
             <span className="bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg animate-pulse">
